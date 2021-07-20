@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Page 01</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    </head>
+    <body>
+        <section id="appContent">
+            <h1>{{heading}}</h1>
+            <p v-bind:title="hint">
+                Hello {{userName}}! Welcome to my {{heading}} app!
+            </p>
+            <div>
+                <label>User Name:
+                    <input type="text" v-model="userName" />
+                </label>
+            </div>
+        </section>
+
+        <script src="./scripts/script01.js"></script>
+    </body>
+</html>

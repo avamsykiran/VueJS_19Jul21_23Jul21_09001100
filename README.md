@@ -167,6 +167,13 @@ VueJS
 
                     <HelloWorld />
 
+    Basic Vue Pages
+    --------------------------------------------
+
+        integrate vue.js as a cdn link into our html page
+
+        https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js
+
     Creating a VueJS Project using vue-cli
     --------------------------------------------
 
