@@ -99,6 +99,74 @@ VueJS
         Watchers
         Routes
 
+
+    VueJS Archetecture
+    --------------------------------------------
+
+        very light weight library for SPA application.
+
+        each SPA application is controlled typically by one Vue Instance.
+
+        Vue instacne
+
+            var app = new Vue({
+                el:"",
+                data: javascriptObjectOrAjsFunThatReturnAnObject,
+                template: "htmlContent"
+                //any other methods to be called in resposne to the events on the dom
+            });
+
+        Data Binding
+
+            Interpolation
+                            {{javascript-expression}}
+
+                            <h1>Hello {{userName}}! How do you do?</h1>
+
+            One-way data binding
+                            the value of a javascript variable/expression can be assigned to an html atribute.
+
+                            v-bind:attrbute="javascript-expression"
+
+                            <img v-bind:src="mylogo" />
+
+            Two-way data binding
+                            to bind a variable with a form element, so that
+                            the foem element is loaded witht eh value in the varible initially,
+                            and each time the value of the form ele changes then variable value is updated.
+
+                            <input type="text" v-model="userName" />
+
+            event binding   
+                            is responsible to respond on events.
+
+                            <button v-on:click="callback()">click me </button>
+
+        Directive
+                    is a user-defined html attribute
+
+                    v-bind
+                    v-model
+                    v-on
+                    v-if
+                    v-for
+                    ...etc
+
+        Component
+                    is a user-defined html element.
+
+                    Vue.component("componentName",{
+                        data: javascriptObjectOrAjsFunThatReturnAnObject,
+                        template: "htmlContent"
+                    });
+
+                    Vue.component("HelloWorld",{
+                        data: { userName:"Vamsy" },
+                        template: "<h1>Hello {{userName}}!</h1>"
+                    });
+
+                    <HelloWorld />
+
     Creating a VueJS Project using vue-cli
     --------------------------------------------
 
