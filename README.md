@@ -13,6 +13,11 @@ VueJS
         Vue-CLI         Project Management Tool     npm install -g vue-cli
                                                     vue --version
 
+                                                    npm uninstall -g vue-cli
+
+                                                    npm install -g @vue/cli
+                                                    vue --version
+
     Preqequisites
     ------------------------------------------------
 
@@ -37,6 +42,18 @@ VueJS
 
         NodeJS                  (optional)
         Webpack                 (optional)
+
+    Coverage
+    ------------------------------------------------------
+    TOPIC
+        Create a basic Vue application
+        Create forms with Vue
+        Create routes with Vue Router
+        Create Vue animations
+        Manage data state with Vuex
+        Create authentication and authorization for Vue apps
+        Prepare a Vue app for internationalization
+        Test Vue apps with Cypress
 
     Web App Evolution
     -------------------------------------------------------
@@ -98,7 +115,6 @@ VueJS
         Directives
         Watchers
         Routes
-
 
     VueJS Archetecture
     --------------------------------------------
@@ -167,19 +183,15 @@ VueJS
 
                     <HelloWorld />
 
-
     Vue Instacne LifeCycle Hooks
     -------------------------------------------
 
         beforeCreate
         created
-        afterCreate
         beforeMount
         mounted
-        afterMount
         befoeUpdate
         updated
-        afterUpdate
         beforeDestroy
         destroyed
 
@@ -191,15 +203,43 @@ VueJS
         https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js
     
 
-    Creating a VueJS Project using vue-cli
+    SFC - Single File Components
     --------------------------------------------
 
-        vue init webpack proj-name
+        MyComponent.vue
+        -------------------------------------
+            <template>
+            </template>
+
+            <script>
+             export default {
+                 name:'',
+                 data(){
+
+                 },
+                 methods : {
+
+                 },
+                 props : {
+                     
+                 }
+             }
+            </script>
+
+            <style>
+            </style>
+
+        vue-loader  is tool that process our .vue files.
+
+    Creating a VueJS Project using vue-cli 4.5
+    --------------------------------------------
+
+        vue create proj-name
 
     To run your app
     --------------------------------------------
         cd proj-name
-        npm run dev
+        npm run serve
 
         and open http://localhost:8082 on your browser.
 
