@@ -34,6 +34,25 @@ export const updateTask = (task) => {
     let index = tasks.findIndex(t => t.id===task.id);
     if(index>-1){
         tasks[index]=task;
+        tasks[index].isEdit=null;
+    }else{
+        throw "No Such Task Found";
+    }
+};
+
+export const editTask = (id) => {
+    let index = tasks.findIndex(t => t.id===id);
+    if(index>-1){
+        tasks[index].isEdit=true;
+    }else{
+        throw "No Such Task Found";
+    }
+};
+
+export const cancelEditTask = (id) => {
+    let index = tasks.findIndex(t => t.id===id);
+    if(index>-1){
+        tasks[index].isEdit=null;
     }else{
         throw "No Such Task Found";
     }

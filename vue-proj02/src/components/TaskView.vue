@@ -4,7 +4,7 @@
     <td>{{ task.title }}</td>
     <td>{{ task.isDone }}</td>
     <td>
-      <button class="btn btn-sm btn-primary">EDIT</button>
+      <button @click="edit" class="btn btn-sm btn-primary">EDIT</button>
       <button @click="del" class="btn btn-sm btn-danger ml-2">DELETE</button>
     </td>
   </tr>
@@ -19,6 +19,9 @@ export default {
   methods:{
     del(){
       this.$emit("delTask",this.task.id);
+    },
+    edit(){
+      this.$emit("editTask",this.task.id);
     }
   }
 };

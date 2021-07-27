@@ -265,3 +265,78 @@ VueJS
         npm install bootstrap@next
 
         vue add bootstrap-vue
+
+    Computed Properties
+    -------------------------------------
+
+        <span>{{ propertyName }}</span>
+        <input type="text" v-model="fullName" />
+
+        computed: {
+            propertyName() {
+                ...
+                return computedValue;
+            },
+            fullName: {
+                get() {
+                    return this.firstName + ' ' + this.lastName
+                },
+                set(newValue) {
+                    const names = newValue.split(' ')
+                    this.firstName = names[0]
+                    this.lastName = names[names.length - 1]
+                }
+            }
+        }
+
+    watchers
+    -------------------------------------
+
+        watch: {
+            // whenever prop1 changes
+            prop1(newVal, oldVal) {
+                //doWhatever needed to be done
+            }
+        }
+
+    Slots
+    -------------------------------------
+
+    component AlertBox
+        <div class="alert alert-danger">
+            <slot></slot>
+        </div>
+
+        <alert-box>
+            content to be replacing the slot
+        </alert-box>
+
+    Naemd Slots
+    --------------------------------------
+    component BaseLayout
+        <div class="container">
+            <header>
+                <slot name="header"></slot>
+            </header>
+            <main>
+                <slot></slot>
+            </main>
+            <footer>
+                <slot name="footer"></slot>
+            </footer>
+        </div>
+
+    <base-layout>
+        <template v-slot:header>
+            <h1>Here might be a page title</h1>
+        </template>
+
+        <template v-slot:default>
+            <p>A paragraph for the main content.</p>
+            <p>And another one.</p>
+        </template>
+
+        <template v-slot:footer>
+            <p>Here's some contact info</p>
+        </template>
+    </base-layout>
