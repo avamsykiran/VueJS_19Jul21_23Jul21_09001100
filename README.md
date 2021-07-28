@@ -340,3 +340,80 @@ VueJS
             <p>Here's some contact info</p>
         </template>
     </base-layout>
+
+    Vue-Router
+    --------------------------------------
+        npm install vue-router@4 --save
+
+        Create a navigation link
+            <router-link to="/">Go to Home</router-link>
+
+        Offer the placeholder for the resultant component
+            <router-view></router-view>
+
+        Configuaring Routes
+            import { createRouter,createWebHashHistory } from 'vue-router'
+           
+            const routes = [
+                { path: '/', component: Home },
+                { path: '/about', component: About },
+            ]
+
+            const router = VueRouter.createRouter({
+                history: VueRouter.createWebHashHistory(),
+                routes,
+            })
+
+            const app = Vue.createApp({})
+            app.use(router)
+            app.mount('#app')
+
+        Accessing routing inside a component
+
+            $router             this.$router.push(url)
+            $route              this.$route.params.paramName
+    
+    State Managemnt using vuex
+    --------------------------------------
+        npm install vuex@next --save
+
+        Creating a Store
+
+            // a store is a state hol;der for the entire application
+            //we can reqeust to modify anything in the store with the help
+            //of mutations
+            //a mutation is a simple function that can do 
+            //modification tot eh state in teh store.
+
+            import { createStore } from 'vuex'
+
+            const store = createStore({
+                state () {
+                    return {
+                        count: 0
+                    }
+                },
+                mutations: {
+                    increment (state) {
+                        state.count++
+                    }
+                }
+            })
+
+            app.use(store)
+
+        Access the state in the store in components using $store 
+        
+        computed: {
+            count () {
+                return this.$store.state.count
+            }
+        }
+
+        Access the store in components using $store to request a mutation:
+
+            methods: {
+                increment() {
+                    this.$store.commit('increment')
+                }
+            }
