@@ -394,26 +394,43 @@ VueJS
                     }
                 },
                 mutations: {
-                    increment (state) {
-                        state.count++
+                    increment (state,payload) {
+                        state.count+=payload
                     }
+                },
+                getters: {
+                    isEven(){
+                        return state.count%2==0;
+                    }
+                },
+                actions: {
+                   saveCount(context){
+                       //do the asyn operation here
+                       //and mutate state if needed as context.commit('mutaionName');
+                   }
                 }
             })
 
             app.use(store)
 
-        Access the state in the store in components using $store 
+        Access the state and getters in the store in components using $store 
         
         computed: {
             count () {
                 return this.$store.state.count
+            },
+            isEven(){
+                return this.$store.getters.isEven
             }
         }
 
-        Access the store in components using $store to request a mutation:
+        Access the store in components using $store to request a mutation,or actions:
 
             methods: {
                 increment() {
-                    this.$store.commit('increment')
+                    this.$store.commit('increment',10)
+                },
+                save(){
+                    this.$store.dispatch('action',payload)
                 }
             }

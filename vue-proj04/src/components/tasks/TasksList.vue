@@ -41,7 +41,7 @@ export default {
   name: 'TasksList',
   computed:{
     tasks(){
-      return this.$store.state.tasks;
+      return this.$store.state.taskModule.tasks;
     },
     doneCount(){
       return this.$store.getters.tasksDone;

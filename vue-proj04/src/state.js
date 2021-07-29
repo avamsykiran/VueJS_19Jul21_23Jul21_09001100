@@ -1,9 +1,16 @@
 import { createStore } from 'vuex'
 
-const store = createStore({
+const empModule = {
     state() {
         return {
-            emps: [],
+            emps: []
+        }
+    }
+};
+
+const taskModule = {
+    state() {
+        return {
             tasks: [
                 { id: 1, title: "Create Product BackLog", isDone: true },
                 { id: 2, title: "Create Scrum and Sprint Plans", isDone: true },
@@ -34,6 +41,12 @@ const store = createStore({
         taskById(state){
             return id => state.tasks.find(t=>t.id===id);
         }
+    }
+};
+
+const store = createStore({
+    modules:{
+        empModule,taskModule
     }
 })
 
