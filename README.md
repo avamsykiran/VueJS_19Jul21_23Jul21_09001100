@@ -434,3 +434,58 @@ VueJS
                     this.$store.dispatch('action',payload)
                 }
             }
+
+    Axios Integration
+    -----------------------------------------------------------
+
+        Create Fake api for learning purpose:
+            npm install json-server --save
+            json-server --watch data.json --port 9999
+
+        Axios
+            npm install axios --save
+
+            import axios from 'axios'
+
+            axios.get(url) : Promise
+            axios.post(url,reqBody) : Promise
+            axios.put(url,reqBody) : Promise
+            axios.delete(url) : Promise
+
+    Internationalization
+    -------------------------------------------------------------
+        npm install vue-i18n@next --save
+
+
+        Configuare vI18n
+        -------------------------------------------------------
+            import { createI18n } from 'vue-i18n'
+
+            const messages = {
+                en: {
+                    message: {
+                        hello: 'hello world'
+                    }
+                },
+                hi: {
+                    message: {
+                        hello: 'नमस्ते दुनिया'
+                    }
+                }
+            }
+
+            const i18n = createI18n({
+                 locale: 'hi', 
+                 fallbackLocale: 'en',
+                 globalInjection: true,
+                 messages, 
+            })
+
+            app.use(i18n);
+
+
+            <div>
+                <p>{{ $t("message.hello") }}</p>
+            </div>
+
+    
